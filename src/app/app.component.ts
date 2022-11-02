@@ -11,28 +11,30 @@ export class AppComponent {
   title = 'angular-to-do';
   toDos: ToDo[] = [
     {
-    task: "finish escalation database",
+    task: "task one",
     completed: false
     },
     {
-    task: "get attending physician form signed",
+    task: "task two",
     completed: false
     },
     {
-    task: "call UNUM",
+    task: "task three",
     completed: true  
+    },
+    {
+    task: "task four",
+    completed: false
     }
   ]
-  addTask(x: NgForm): void{
+  addTask(formParam: NgForm): void{
     let newTask: ToDo = {
-      task: x.form.value,
+      task: formParam.form.value.toDoTask,
       completed: false
     }
-    this.toDos.push
+    this.toDos.push(newTask)
   }
-  completeTask(x: ToDo): void{
-    x.completed = true
-    console.log(x.task)
-    console.log(x.completed)
+  completeTask(task: ToDo): void{
+    task.completed = true
   }
 }

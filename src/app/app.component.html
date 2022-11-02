@@ -2,11 +2,14 @@
 
 <div *ngFor="let todo of toDos; index as i">
   <p>{{ i + 1 }}. {{ todo.task }}</p>
-  <button (click)="completeTask(todo)">Complete</button>
+  <button *ngIf="!todo.completed" (click)="completeTask(todo)">Completed?</button>
 </div>
+
+<hr>
 
 <form #x="ngForm" (ngSubmit)="addTask(x)">
   <label>Add a task</label>
   <input type="text" name="toDoTask" ngModel />
 <button>Add a task</button>
 </form>
+
